@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+use URI::Escape;
 
 print "Content-type: text/html\n\n";
 
@@ -64,7 +65,9 @@ print "</div>";
 if ($passedurl eq "0") {
 	#nothing
 } else {
-	system "/usr/bin/curl $passedurl";
+	my $encode = uri_unescape($passedurl);
+	print $encode;
+	system "/usr/bin/curl $encode";
 }
 
 
