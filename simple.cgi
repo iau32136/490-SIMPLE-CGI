@@ -4,18 +4,13 @@ print "Content-type: text/html\n\n";
 
 print "";
 
-$requestURI =  $ENV{'QUERY_STRING'};
+$request =  $ENV{'QUERY_STRING'};
 
 
-@uriparts = split(/&/, "$requestURI");
-$lengthofquery = scalar @uriparts;
+@queryparts = split(/&/, "$request");
+$lengthofquery = scalar @queryparts;
 
-print $lengthofquery;
-if ($lengthofquery > 0) {
-	print $uriparts[0];
-}
-
-$html = "
+$htmlStart = "
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,8 +22,44 @@ $html = "
   	Hey cool guy this is my project! <br>
   	my name is Ibram Uppal <br>
 
+";
+
+$htmlEnd = "
   </body>
 </html>
 ";
 
-print "$html";
+
+
+###############################################################
+
+
+print "$htmlStart";
+
+$passedurl = "0";
+if ($lengthofquery > 0) {
+	print "<br>";
+	for ($i = 0; $i < $lengthofquery; $i = $i + 1) {
+		$currString = $queryparts[$i];
+		@currentQueryItem = split(/\=/, $queryparts[$i]);
+
+		if ($currentQueryItem[0] eq "passedurl") {
+
+			$passedurl = $currentQueryItem[1];
+		}
+	}
+}
+
+if ($passedurl eq "0") {
+	#nothing
+} else {
+	print "<iframe src='$passedurl'></iframe>";
+}
+
+
+print "$htmlEnd";
+
+
+
+
+
