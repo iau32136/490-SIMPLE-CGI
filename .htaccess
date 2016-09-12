@@ -1,0 +1,8 @@
+//Rewrite to www
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^csun.edu/~iau32136/[nc]
+RewriteRule ^(.*)$ http://www.csun.edu/~iau32136//$1 [r=301,nc]
+
+//301 Redirect Old File
+Redirect 301 /index.html /cgi-bin/simple.cgi
