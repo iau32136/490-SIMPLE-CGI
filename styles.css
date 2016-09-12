@@ -2,6 +2,14 @@ html, body {
 
 	height: 100%;
 	width: 100%;
-	font-family: "Sans-Serif";
+	font-family: "Ariel", Sans-Serif;
 	font-size: 24px;
+	color: white;
+	background: black;
+}
+
+p {
+
+	color: blue;
+	background-color: gray;
 }
