@@ -1,6 +1,5 @@
 # 490-SIMPLE-CGI
-# IBRAM UPPAL
-
+#IBRAM Uppal
 #git url:
 https://github.com/iau32136/490-SIMPLE-CGI.git
 
@@ -26,3 +25,6 @@ ten this is parsed using URL::entities to get the excape characters processed
 
 and then curl is used from a system call to execute a request to that specific
 page.
+
+Status:
+Working project delivered
